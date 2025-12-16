@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+docusaurus_embedding_pipeline.egg-info/PKG-INFO
+docusaurus_embedding_pipeline.egg-info/SOURCES.txt
+docusaurus_embedding_pipeline.egg-info/dependency_links.txt
+docusaurus_embedding_pipeline.egg-info/requires.txt
+docusaurus_embedding_pipeline.egg-info/top_level.txt
