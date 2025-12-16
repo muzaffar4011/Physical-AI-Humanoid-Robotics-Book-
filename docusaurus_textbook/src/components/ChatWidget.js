@@ -24,9 +24,10 @@ export default function ChatWidget() {
       // Backend API URL - automatically detects environment
       // For production, set REACT_APP_API_URL environment variable during build
       // Or update this to your Render backend URL after deployment
+      // Backend API URL - Update with your actual Render URL
       const API_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
         ? "http://localhost:8000" 
-        : "https://chat-4xqu.onrender.com"; // Replace with your Render URL
+        : "https://chat-4xqu.onrender.com"; // Your Render backend URL
       
       const res = await axios.post(`${API_URL}/ask`, {
         query: currentInput

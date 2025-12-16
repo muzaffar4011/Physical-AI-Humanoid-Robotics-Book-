@@ -24,13 +24,19 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Add CORS middleware for development
+# Add CORS middleware - allow GitHub Pages and localhost
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=[
+        "https://muzaffar4011.github.io",
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "*"  # Allow all for development
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Pydantic models
@@ -122,6 +128,13 @@ async def ask_rag(request: QueryRequest):
             error=str(e),
             status="error"
         )
+
+@app.get("/")
+async def root():
+    """
+    Root endpoint - redirects to health
+    """
+    return {"status": "ok", "message": "RAG Agent API is running", "docs": "/docs"}
 
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
