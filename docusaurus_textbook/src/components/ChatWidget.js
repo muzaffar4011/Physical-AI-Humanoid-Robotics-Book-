@@ -26,7 +26,7 @@ export default function ChatWidget() {
       // Or update this to your Render backend URL after deployment
       const API_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
         ? "http://localhost:8000" 
-        : "https://your-backend-name.onrender.com"; // Replace with your Render URL
+        : "https://chat-4xqu.onrender.com"; // Replace with your Render URL
       
       const res = await axios.post(`${API_URL}/ask`, {
         query: currentInput
